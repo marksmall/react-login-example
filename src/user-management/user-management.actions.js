@@ -12,7 +12,7 @@ export const REGISTER_REQUESTED_FAILURE = 'REGISTER_REQUESTED_FAILURE';
  * If there is an problem with the request, then dispatch an error action,
  * otherwise, dispatch a success action.
  */
-export const login = form => async dispatch => {
+export const login = (form, callback) => async dispatch => {
   console.log('FORM: ', form);
   const headers = {
     Accept: 'application/json',
@@ -33,6 +33,7 @@ export const login = form => async dispatch => {
   const user = await response.json();
   console.log('USER: ', user);
   dispatch({ type: LOGIN_REQUESTED_SUCCESS, user });
+  callback();
 };
 
 /**

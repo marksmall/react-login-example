@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import { validate } from './login.validator';
 
@@ -14,7 +14,8 @@ class LoginForm extends Component {
         password: ''
       },
       errors: {},
-      isFormValid: false
+      isFormValid: false,
+      redirectToReferrer: false
     };
   }
 
@@ -46,8 +47,12 @@ class LoginForm extends Component {
 
     if (this.state.isFormValid) {
       let fields = { ...this.state.fields };
+      // this.setState(() => ({ redirectToReferrer: true }));
+      // this.setState({ redirectToReferrer: true });
 
-      this.props.login(fields);
+      this.props.login(fields, () => {
+        this.setState({ redirectToReferrer: true });
+      });
 
       // this.reset();
     }
@@ -67,11 +72,21 @@ class LoginForm extends Component {
     });
   };
 
-  componentDidMount = () => {
-    this.validateForm();
-  };
+  // componentDidMount = () => {
+  //   this.validateForm();
+  // };
 
   render = () => {
+    const { from } = this.props.location.state || {
+      from: { pathname: '/' }
+    };
+    const { redirectToReferrer } = this.state;
+    console.log('PROPS: ', from, redirectToReferrer, this.props);
+
+    if (redirectToReferrer === true) {
+      return <Redirect to={from} />;
+    }
+
     return (
       <form name="loginForm" onSubmit={this.onSubmit}>
         <h2 className="heading">Login</h2>

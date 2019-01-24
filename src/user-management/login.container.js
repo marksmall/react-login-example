@@ -5,7 +5,7 @@ import { login } from './user-management.actions';
 
 import Login from './login.component';
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({ location: state.router.location });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(

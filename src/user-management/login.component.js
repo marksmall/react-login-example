@@ -5,9 +5,9 @@ import LoginForm from './login-form.component';
 
 import style from './login.module.css';
 
-const Login = ({ login }) => (
+const Login = ({ login, location }) => (
   <div className={style['login-container']}>
-    <LoginForm login={login} />
+    <LoginForm login={login} location={location} />
   </div>
 );
 
