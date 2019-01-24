@@ -1,25 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Link, Route, Switch } from 'react-router-dom';
+
+import PrivateRoute from './utils/private-route.component';
+// import Login from './login-form.container';
+import Login from './user-management/login.container';
+import Register from './user-management/register.container';
+// import logo from './logo.svg';
 import './App.css';
 
+// const Login = () => <h3>Login</h3>;
+const Public = () => <h3>Public</h3>;
+const Protected = () => <h3>Protected</h3>;
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <ul>
+          <li>
+            <Link to="/public">Public Page</Link>
+          </li>
+          <li>
+            <Link to="/protected">Protected Page</Link>
+          </li>
+        </ul>
+        <Switch>
+          <Route path="/public" component={Public} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <PrivateRoute
+            path="/protected"
+            user={this.props.user}
+            component={Protected}
+          />
+        </Switch>
       </div>
     );
   }
