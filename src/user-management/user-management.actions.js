@@ -71,7 +71,7 @@ export const register = form => async dispatch => {
   dispatch({ type: REGISTER_REQUESTED_SUCCESS });
 };
 
-export const logout = () => async dispatch => {
+export const logout = history => async dispatch => {
   const response = await postData(API.logout, JSON.stringify({}));
 
   if (!response.ok) {
@@ -86,4 +86,5 @@ export const logout = () => async dispatch => {
   }
 
   dispatch({ type: LOGOUT_REQUESTED_SUCCESS });
+  history.push('/logout');
 };

@@ -1,5 +1,6 @@
 const USERS = {
   adminUser: {
+    isValidated: false,
     username: 'admin',
     firstName: 'Captain',
     surname: 'Scarlet',
@@ -7,6 +8,7 @@ const USERS = {
     roles: ['SystemAdministrator']
   },
   centralUser: {
+    isValidated: false,
     username: 'admin',
     firstName: 'Aqua',
     surname: 'Maria',
@@ -14,6 +16,7 @@ const USERS = {
     roles: ['CentralUser']
   },
   provincialUser: {
+    isValidated: true,
     username: 'admin',
     firstName: 'Joe',
     surname: 'Ninety',
