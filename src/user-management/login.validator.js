@@ -20,7 +20,7 @@ export const validate = fields => {
   }
 
   if (fields.password && fields.password.length < 1) {
-    errors.password = 'Please select 2 or more of the available models.';
+    errors.password = 'Password too short.';
   }
 
   return errors;
