@@ -14,14 +14,17 @@ class App extends Component {
   render() {
     return (
       <div>
-        <ul>
-          <li>
-            <Link to="/public">Public Page</Link>
-          </li>
-          <li>
-            <Link to="/protected">Protected Page</Link>
-          </li>
-        </ul>
+        <header>
+          <ul>
+            <li>
+              <Link to="/public">Public Page</Link>
+            </li>
+            <li>
+              <Link to="/protected">Protected Page</Link>
+            </li>
+          </ul>
+          <button onClick={this.props.logout}>Logout</button>
+        </header>
         <Switch>
           <Route path="/public" component={Public} />
           <Route path="/login" component={Login} />

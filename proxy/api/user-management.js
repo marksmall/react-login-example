@@ -42,14 +42,14 @@ const login = (req, res) => {
 };
 
 const logout = (req, res) => {
-  res.redirect('/');
+  res.json({ type: 'success' });
 };
 
 const register = (req, res) => {
-  console.log('STATUS: ', res.status);
+  console.log('STATUS: ', res.statusCode);
 
   res.status(200);
-  res.redirect('/login');
+  res.json({ type: 'success' });
 };
 
 module.exports = {

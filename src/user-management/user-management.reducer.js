@@ -1,7 +1,11 @@
 import {
   LOGIN_REQUESTED_SUCCESS,
   LOGIN_REQUESTED_FAILURE,
-  LOGIN_VALIDATED
+  REGISTER_REQUESTED_SUCCESS,
+  REGISTER_REQUESTED_FAILURE,
+  VALIDATE_REGISTRATION,
+  LOGOUT_REQUESTED_SUCCESS,
+  LOGOUT_REQUESTED_FAILURE
 } from './user-management.actions';
 
 const initialState = {
@@ -19,12 +23,29 @@ const reducer = (state = initialState, action) => {
       };
     case LOGIN_REQUESTED_FAILURE:
       return { ...state, error: action.error };
-    case LOGIN_VALIDATED:
+
+    case REGISTER_REQUESTED_SUCCESS:
       return {
         ...state,
-        login: {
-          errors: action.errors
-        }
+        error: null
+      };
+    case REGISTER_REQUESTED_FAILURE:
+      return { ...state, error: action.error };
+
+    case LOGOUT_REQUESTED_SUCCESS:
+      return {
+        ...state,
+        user: null,
+        error: null
+      };
+    case LOGOUT_REQUESTED_FAILURE:
+      return { ...state, error: action.error };
+
+    case VALIDATE_REGISTRATION:
+      return {
+        ...state,
+        isRegistered: true,
+        error: null
       };
 
     default:

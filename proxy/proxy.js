@@ -31,7 +31,7 @@ router.get('/', function(req, res) {
 // Register routes
 router.route('/register').post(userManagement.register);
 router.route('/login').post(userManagement.login);
-router.get('/logout', userManagement.logout);
+router.route('/logout').post(userManagement.logout);
 
 app.use('/api', router);
 
