@@ -47,14 +47,10 @@ class LoginForm extends Component {
 
     if (this.state.isFormValid) {
       let fields = { ...this.state.fields };
-      // this.setState(() => ({ redirectToReferrer: true }));
-      // this.setState({ redirectToReferrer: true });
 
       this.props.login(fields, () => {
         this.setState({ redirectToReferrer: true });
       });
-
-      // this.reset();
     }
   };
 

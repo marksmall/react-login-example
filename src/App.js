@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 
 import PrivateRoute from './utils/private-route.component';
-// import Login from './login-form.container';
+
 import Login from './user-management/login.container';
 import Register from './user-management/register.container';
-// import logo from './logo.svg';
+
 import './App.css';
 
-// const Login = () => <h3>Login</h3>;
 const Public = () => <h3>Public</h3>;
 const Protected = () => <h3>Protected</h3>;
 class App extends Component {

@@ -6,14 +6,7 @@ import {
 
 const initialState = {
   user: null,
-  error: null,
-  login: {
-    errors: {
-      summary: null,
-      email: null,
-      password: null
-    }
-  }
+  error: null
 };
 
 const reducer = (state = initialState, action) => {
