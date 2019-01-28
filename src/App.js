@@ -27,7 +27,10 @@ class App extends Component {
             </li>
           </ul>
           {this.props.user && (
-            <button onClick={() => this.props.logout(this.props.history)}>
+            <button
+              onClick={() => this.props.logout(this.props.history)}
+              data-cy="logout"
+            >
               Logout
             </button>
           )}

@@ -98,6 +98,7 @@ class LoginForm extends Component {
                 required
                 value={this.state.fields.email}
                 onChange={this.handleChange}
+                data-cy="email"
               />
             </div>
             <div className={style['error-message']}>
@@ -114,6 +115,7 @@ class LoginForm extends Component {
                 required
                 value={this.state.fields.password}
                 onChange={this.handleChange}
+                data-cy="password"
               />
             </div>
             <div className={style['error-message']}>
@@ -130,6 +132,7 @@ class LoginForm extends Component {
                 onClick={this.submitForm}
                 className={style['submit-btn']}
                 disabled={!this.state.isFormValid}
+                data-cy="submit"
               >
                 Login
               </button>
@@ -137,7 +140,11 @@ class LoginForm extends Component {
           </li>
         </ul>
         <p>
-          Don't have an account? <Link to={'/register'}>Create one</Link>.
+          Don't have an account?{' '}
+          <Link to={'/register'} data-cy="register">
+            Create one
+          </Link>
+          .
         </p>
       </form>
     );
