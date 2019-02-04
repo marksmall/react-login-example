@@ -77,7 +77,7 @@ class LoginForm extends Component {
       from: { pathname: '/' }
     };
     const { redirectToReferrer } = this.state;
-    console.log('PROPS: ', from, redirectToReferrer, this.props);
+    // console.log('PROPS: ', from, redirectToReferrer, this.props);
 
     if (redirectToReferrer === true) {
       return <Redirect to={from} />;

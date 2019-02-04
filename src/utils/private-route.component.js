@@ -6,7 +6,7 @@ const PrivateRoute = ({ component: Component, user, ...rest }) => (
   <Route
     {...rest}
     render={props => {
-      console.log('PRIVATE: ', user, props);
+      // console.log('PRIVATE: ', user, props);
       if (user && !user.isValidated) {
         return (
           <Redirect

@@ -1,0 +1,28 @@
+.popup {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.popup-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: bolder;
+  border-bottom: solid 1px;
+}
+
+.popup-body {
+}
+
+.close-btn {
+  display: flex;
+  padding: 0.3rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.icon {
+  height: 0.7rem;
+}

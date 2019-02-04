@@ -6,6 +6,7 @@ import PrivateRoute from './utils/private-route.component';
 import Login from './user-management/login.container';
 import Logout from './user-management/logout.component';
 import Register from './user-management/register.container';
+import Stadiums from './stadiums/stadiums.container';
 
 import './App.css';
 
@@ -14,7 +15,7 @@ const Protected = () => <h3>Protected</h3>;
 const Validate = () => <h3>Validate</h3>;
 class App extends Component {
   render() {
-    console.log('APP PROPS: ', this.props);
+    // console.log('APP PROPS: ', this.props);
     return (
       <div>
         <header>
@@ -24,6 +25,9 @@ class App extends Component {
             </li>
             <li>
               <Link to="/protected">Protected Page</Link>
+            </li>
+            <li>
+              <Link to="/stadiums">Stadiums</Link>
             </li>
           </ul>
           {this.props.user && (
@@ -45,6 +49,12 @@ class App extends Component {
             path="/protected"
             user={this.props.user}
             component={Protected}
+          />
+          <PrivateRoute
+            exact
+            path="/stadiums"
+            user={this.props.user}
+            component={Stadiums}
           />
           <Route exact path="/logout" component={Logout} />
         </Switch>

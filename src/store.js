@@ -6,12 +6,16 @@ import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 
 import admin from './user-management/user-management.reducer';
+import map from './map/map.reducer';
+import stadiums from './stadiums/stadiums.reducer';
 
 export const history = createBrowserHistory();
 
 const createRootReducer = history =>
   combineReducers({
     admin,
+    map,
+    stadiums,
     router: connectRouter(history)
   });
 

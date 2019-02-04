@@ -1,0 +1,8 @@
+.mapstyle-switcher-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 1rem;
+  list-style-type: none;
+}
