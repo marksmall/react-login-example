@@ -30,6 +30,16 @@ class StormerMap extends Component {
     } = this.props;
     console.log('STADIUMS MAP PROPS: ', this.props);
 
+    const layersMap = layers.map(layer => {
+      if (layer.layer === 'contours' && layer.visible) {
+        return <ContoursLayer key={layer.layer} />;
+      } else if (layer.layer === 'stadiums' && layer.visible) {
+        return <StadiumLayer key={layer.layer} selectStadium={selectStadium} />;
+      } else {
+        return null;
+      }
+    });
+
     return (
       <AbstractMap
         selectedBasemap={selectedBasemap}
@@ -39,6 +49,7 @@ class StormerMap extends Component {
         selectedFeature={selectedStadium}
         isPopupVisible={isPopupVisible}
         closePopup={closePopup}
+        layers={layersMap}
       >
         <MapStyleSwitcher
           basemaps={basemaps}
@@ -49,8 +60,6 @@ class StormerMap extends Component {
           layers={Array.from(layers)}
           toggleLayerVisibility={toggleLayerVisibility}
         />
-        {/* <ContoursLayer />
-        <StadiumLayer selectStadium={selectStadium} /> */}
         {layers.map(layer => {
           if (layer.layer === 'contours' && layer.visible) {
             return <ContoursLayer key={layer.layer} />;
