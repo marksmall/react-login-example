@@ -53,7 +53,7 @@
     "eslint": "5.6.0",
     "eslint-plugin-cypress": "^2.2.0",
     "eslint-plugin-prettier": "^3.0.1",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "gherkin-testcafe": "^1.6.0",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.9",
